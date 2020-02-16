@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4117645892537055848}
   - component: {fileID: 4117645892537055847}
+  - component: {fileID: 2836598326992652322}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4117645892537055846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.55583596, y: -0.6507607, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,11 +70,9 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0.5, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0.5, y: 0.8660254, z: 0}
   - {x: 1, y: 0, z: 0}
-  - {x: 0.5, y: 0, z: 0}
+  - {x: -0.5, y: 0.8660254, z: 0}
+  - {x: -0.5, y: -0.8660254, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.05
@@ -128,4 +127,20 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 0
-  m_Loop: 0
+  m_Loop: 1
+--- !u!114 &2836598326992652322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4117645892537055846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5af52b0257fd4e6b99991c504f59bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  rotateSpeed: 100
+  scaleSpeed: 0.5
+  isPlaced: 0
