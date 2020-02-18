@@ -6,5 +6,7 @@ public enum GameState
     PlayerTwoOpen,
     PlayerTwoWord,
     EveryoneOpen,
-    GameStart
+    GameStart,
+    DisplayWords,
+    DisplayWinner
 }
