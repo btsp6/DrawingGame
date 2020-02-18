@@ -13,6 +13,9 @@ public class GamePanelController : MonoBehaviour
     private TextMeshProUGUI PromptButtonText;
     private TextMeshProUGUI WordText;
 
+    private string PlayerOneWord;
+    private string PlayerTwoWord;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,11 @@ public class GamePanelController : MonoBehaviour
         PromptText.text = "Prompt";
         PromptButtonText.text = "OK";
         WordText.text = "word";
+
+        // Generate the two words for the player this round
+        PlayerOneWord = Pictures.generateWord();
+        PlayerTwoWord = Pictures.generateWord();
+
     }
 
     // Update is called once per frame
@@ -42,7 +50,7 @@ public class GamePanelController : MonoBehaviour
                 PromptPanel.SetActive(true);
                 break;
             case GameState.PlayerOneWord:
-                WordText.text = Pictures.generateWord();
+                WordText.text = PlayerOneWord;
                 WordPanel.SetActive(true);
                 break;
             case GameState.PlayerTwoOpen:
@@ -50,7 +58,7 @@ public class GamePanelController : MonoBehaviour
                 PromptPanel.SetActive(true);
                 break;
             case GameState.PlayerTwoWord:
-                WordText.text = Pictures.generateWord();
+                WordText.text = PlayerTwoWord;
                 WordPanel.SetActive(true);
                 break;
             case GameState.EveryoneOpen:
