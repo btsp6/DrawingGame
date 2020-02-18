@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 95743792}
   - component: {fileID: 95743791}
   m_Layer: 5
-  m_Name: Score1
+  m_Name: Score0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 238250910}
   - component: {fileID: 238250909}
   m_Layer: 5
-  m_Name: Score2
+  m_Name: Score1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 611365461}
   - component: {fileID: 611365460}
   m_Layer: 5
-  m_Name: Score3
+  m_Name: Score2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2105,7 +2105,7 @@ GameObject:
   - component: {fileID: 750565900}
   - component: {fileID: 750565899}
   m_Layer: 5
-  m_Name: Word2Button
+  m_Name: WordButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2170,7 +2170,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 750565900}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1098216370}
+        m_MethodName: IncreaseScore
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &750565900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2801,6 +2812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PromptPanel: {fileID: 441068503}
   WordPanel: {fileID: 521515071}
+  ScorePanel: {fileID: 856149960}
 --- !u!1 &1119562962
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,7 +3277,7 @@ GameObject:
   - component: {fileID: 1446132871}
   - component: {fileID: 1446132870}
   m_Layer: 5
-  m_Name: Word3Button
+  m_Name: WordButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3330,7 +3342,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1446132871}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1098216370}
+        m_MethodName: IncreaseScore
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1446132871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3462,7 +3485,7 @@ GameObject:
   - component: {fileID: 1619752158}
   - component: {fileID: 1619752157}
   m_Layer: 5
-  m_Name: Word1Button
+  m_Name: WordButton0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3527,7 +3550,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1619752158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1098216370}
+        m_MethodName: IncreaseScore
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1619752158
 MonoBehaviour:
   m_ObjectHideFlags: 0

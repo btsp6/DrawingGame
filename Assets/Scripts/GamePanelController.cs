@@ -8,10 +8,14 @@ public class GamePanelController : MonoBehaviour
 
     public GameObject PromptPanel;
     public GameObject WordPanel;
+    public GameObject ScorePanel;
 
     private TextMeshProUGUI PromptText;
     private TextMeshProUGUI PromptButtonText;
     private TextMeshProUGUI WordText;
+
+    private TextMeshProUGUI[] Words;
+    private TextMeshProUGUI[] Scores;
 
     private string PlayerOneWord;
     private string PlayerTwoWord;
@@ -22,6 +26,7 @@ public class GamePanelController : MonoBehaviour
     {
         PromptPanel.SetActive(false);
         WordPanel.SetActive(false);
+        ScorePanel.SetActive(false);
 
         // Get PromptText, PromptButtonText and WordText objects
         PromptText = PromptPanel.transform.Find("PromptTextPanel").gameObject.GetComponentInChildren<TextMeshProUGUI>();
@@ -31,6 +36,17 @@ public class GamePanelController : MonoBehaviour
         PromptText.text = "Prompt";
         PromptButtonText.text = "OK";
         WordText.text = "word";
+
+        Words = new TextMeshProUGUI[3];
+        Scores = new TextMeshProUGUI[3];
+
+        for (int i = 0; i < Words.Length; i++)
+        {
+            Words[i] = ScorePanel.transform.Find("WordsPanel").Find("WordButton" + i).gameObject.GetComponentInChildren<TextMeshProUGUI>();
+            Words[i].text = "word";
+            Scores[i] = ScorePanel.transform.Find("ScoresPanel").Find("Score" + i).gameObject.GetComponent<TextMeshProUGUI>();
+            Scores[i].text = "0";
+        }
 
         // Generate the two words for the player this round
         PlayerOneWord = Pictures.generateWord();
@@ -66,6 +82,12 @@ public class GamePanelController : MonoBehaviour
                 break;
             case GameState.GameStart:
                 break;
+            case GameState.DisplayWords:
+                PromptButtonText.text = "OK";
+                ScorePanel.SetActive(true);
+                break;
+            case GameState.DisplayWinner:
+                break;
             default:
                 break;
         }
@@ -97,8 +119,19 @@ public class GamePanelController : MonoBehaviour
                 break;
             case GameState.GameStart:
                 break;
+            case GameState.DisplayWords:
+                ScorePanel.SetActive(false);
+                GameData.setGameState(GameState.DisplayWinner);
+                break;
+            case GameState.DisplayWinner:
+                break;
             default:
                 break;
         }
+    }
+
+    public void IncreaseScore(int index)
+    {
+        Scores[index].text = (int.Parse(Scores[index].text) + 1).ToString();
     }
 }
