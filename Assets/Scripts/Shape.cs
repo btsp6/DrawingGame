@@ -35,6 +35,8 @@ public class Shape : MonoBehaviour
     public void PlaceShape()
     {
         isPlaced = true;
+        GameData.placedShapes.Add(GameData.activeShape);
+        GameData.activeShape = null;
         print("Placed shape!");
     }
 }

@@ -18,8 +18,6 @@ public class GameController : MonoBehaviour
         if (Input.GetButton("PlaceShape") && GameData.activeShape != null)
         {
             GameData.activeShape.GetComponent<Shape>().PlaceShape();
-            GameData.placedShapes.Add(GameData.activeShape);
-            GameData.activeShape = null;
         }
     }
 
