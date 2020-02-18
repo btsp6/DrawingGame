@@ -41,8 +41,6 @@ public class GamePanelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         switch (GameData.getGameState()) // TODO: Switch statements should eventually be changed into event handling code
         {
             case GameState.PlayerOneOpen:
@@ -67,11 +65,9 @@ public class GamePanelController : MonoBehaviour
                 PromptButtonText.text = "GO!";
                 break;
             case GameState.GameStart:
-                PromptButtonText.text = "OK";
                 break;
             default:
                 break;
-
         }
     }
 
