@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ButtonHandler : MonoBehaviour
+public class TitleButtonHandler : MonoBehaviour
 {
     public GameObject HelpPanel;
     
