@@ -13,7 +13,7 @@ public class Shape : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Shape is alive");
+        Debug.Log("Instantiated shape.");
     }
 
     // Update is called once per frame
@@ -21,12 +21,6 @@ public class Shape : MonoBehaviour
     {
         if (!isPlaced)
         {
-            if (Input.GetButton("PlaceShape"))
-            {
-                isPlaced = true;
-                return;
-            }
-
             // TODO: Figure out if we want GetAxis or GetAxisRaw
             Vector3 moveDir = new Vector3(Input.GetAxis("MoveX"), Input.GetAxis("MoveY"), 0);
             this.transform.position += Time.deltaTime * moveSpeed * moveDir;
@@ -36,5 +30,11 @@ public class Shape : MonoBehaviour
             Vector3 scaleDir = new Vector3(Input.GetAxis("ScaleX"), Input.GetAxis("ScaleY"), 0);
             this.transform.localScale += Time.deltaTime * moveSpeed * scaleDir;
         }
+    }
+
+    public void PlaceShape()
+    {
+        isPlaced = true;
+        print("Placed shape!");
     }
 }

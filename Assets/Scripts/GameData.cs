@@ -6,7 +6,7 @@ public static class GameData
 {
     private static GameState gameState; // TODO: Remove getters and setters?
     public static GameObject activeShape;
-    public static GameObject[] placedShapes;
+    public static List<GameObject> placedShapes = new List<GameObject>();
 
     public static GameState getGameState()
     {

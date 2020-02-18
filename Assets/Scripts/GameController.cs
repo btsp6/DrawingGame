@@ -15,17 +15,22 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetButton("PlaceShape") && GameData.activeShape != null)
+        {
+            GameData.activeShape.GetComponent<Shape>().PlaceShape();
+            GameData.placedShapes.Add(GameData.activeShape);
+            GameData.activeShape = null;
+        }
     }
 
     public void SpawnShape(string shapeTag)
     {
+        if (GameData.getGameState() != GameState.GameStart) return;
         foreach (GameObject shape in shapes)
         {   
             if (shape.CompareTag(shapeTag))
             {
-                print("Spawning shape!");
-                Destroy(GameData.activeShape);
+                if (GameData.activeShape != null) Destroy(GameData.activeShape);
                 GameData.activeShape = Instantiate(shape);
                 GameData.activeShape.transform.position = new Vector3(0, 0, -1);
                 break;
