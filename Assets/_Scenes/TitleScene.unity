@@ -524,7 +524,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1813906706}
         m_MethodName: OpenHelpPanel
         m_Mode: 1
         m_Arguments:
@@ -774,7 +774,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1813906706}
         m_MethodName: CloseHelpPanel
         m_Mode: 1
         m_Arguments:
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 143.95
+  m_fontSize: 144.4
   m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1721,6 +1721,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347708767}
   m_CullTransparentMesh: 0
+--- !u!1 &1813906705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767696709165899459, guid: 088093d408629d24db83da0871d8b92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 290004064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1813906706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813906705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc36a6584d80ba4fa55d79df7129fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HelpPanel: {fileID: 128915643}
 --- !u!1 &1855317510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1819,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1813906706}
         m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:

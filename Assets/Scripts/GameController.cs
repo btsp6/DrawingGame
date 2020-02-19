@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     public GameObject TurnText;
 
     public GameObject[] shapes;
-    public static int numRounds = 4;
+    public static int numRounds = 20;
 
     // Start is called before the first frame update
     void Start() { }
