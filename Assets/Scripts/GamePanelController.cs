@@ -172,6 +172,7 @@ public class GamePanelController : MonoBehaviour
                 break;
             case GameState.DisplayWinner:
                 // Temporary setting to go back to title screen
+                GameData.setGameState(GameState.PlayerOneOpen);
                 SceneManager.LoadScene("TitleScene");
                 break;
             default:
