@@ -8,6 +8,7 @@ TagManager:
   - triangleShape
   - circleShape
   - semicircleShape
+  - spikesShape
   layers:
   - Default
   - TransparentFX
