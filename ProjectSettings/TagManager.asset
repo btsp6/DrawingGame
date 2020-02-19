@@ -6,6 +6,9 @@ TagManager:
   tags:
   - squareShape
   - triangleShape
+  - circleShape
+  - semicircleShape
+  - spikesShape
   layers:
   - Default
   - TransparentFX
