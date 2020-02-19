@@ -12,6 +12,7 @@ public class GamePanelController : MonoBehaviour
     // Panels
     public GameObject PromptPanel;
     public GameObject WordPanel;
+    public GameObject TurnText;
     public GameObject ScorePanel;
     public GameObject WinnerPanel;
 
@@ -159,13 +160,14 @@ public class GamePanelController : MonoBehaviour
                 break;
             case GameState.EveryoneOpen:
                 PromptPanel.SetActive(false);
+                TurnText.GetComponent<TMPro.TextMeshProUGUI>().SetText($"Player One's Turn\nRound 1/{GameController.numRounds / 2}");
                 GameData.setGameState(GameState.GameStart);
                 break;
             case GameState.GameStart:
                 GameData.setGameState(GameState.DisplayWords);
                 break;
             case GameState.DisplayWords:
-                ScorePanel.SetActive(false);
+                //ScorePanel.SetActive(false);
                 GameData.setGameState(GameState.DisplayWinner);
                 break;
             case GameState.DisplayWinner:
