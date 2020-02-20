@@ -7,6 +7,7 @@ public enum GameState
     PlayerTwoWord,
     EveryoneOpen,
     GameStart,
+    GamePlaying,
     NotifyTurn,
     DisplayWords,
     DisplayWinner

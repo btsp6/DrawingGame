@@ -17,11 +17,11 @@ public class GameController : MonoBehaviour
     {
         if (GameData.getGameState() == GameState.GameStart)
         {
-            if (GameData.turnCount >= 2 * GameData.numRounds)
-            {
-                GameData.setGameState(GameState.DisplayWords);
-            }
-
+            GameData.turnCount = -1;
+            GotoNextTurn();
+        }
+        else if (GameData.getGameState() == GameState.GamePlaying)
+        {
             GameData.turnSecondsRemaining -= Time.deltaTime;
 
             if (Input.GetButton("PlaceShape") && PlaceShape()) GotoNextTurn();
@@ -31,7 +31,10 @@ public class GameController : MonoBehaviour
                 GotoNextTurn();
             }
 
-            TurnText.GetComponent<TMPro.TextMeshProUGUI>().SetText(getHudText());
+            if (GameData.turnCount < 2 * GameData.numRounds)
+            {
+                TurnText.GetComponent<TMPro.TextMeshProUGUI>().SetText(getHudText());
+            }
         }
         else if (GameData.getGameState() == GameState.NotifyTurn)
         {
@@ -54,7 +57,8 @@ public class GameController : MonoBehaviour
             if (GameData.notifyTurnSecondsRemaining <= 0)
             {
                 NotifyTurnPanel.SetActive(false);
-                GameData.setGameState(GameState.GameStart);
+                if (GameData.turnCount < 2 * GameData.numRounds) GameData.setGameState(GameState.GamePlaying);
+                else GameData.setGameState(GameState.DisplayWords);
             }
         }
     }
@@ -62,19 +66,26 @@ public class GameController : MonoBehaviour
     private void GotoNextTurn()
     {
         GameData.turnCount += 1;
-        GameData.turnSecondsRemaining = GameData.secondsPerTurn;
         GameData.setGameState(GameState.NotifyTurn);
         NotifyTurnPanel.SetActive(true);
         NotifyTurnPanel.GetComponent<CanvasGroup>().alpha = 0;
         GameData.notifyTurnSecondsRemaining = GameData.notifyTurnSeconds;
 
-        string activePlayer = (GameData.turnCount % 2 == 0) ? "One" : "Two";
-        NotifyTurnPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = $"Player {activePlayer}\nto Draw!";
+        if (GameData.turnCount >= 2 * GameData.numRounds)
+        {
+            NotifyTurnPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = $"Time to Vote!";
+            GameData.notifyTurnSecondsRemaining = GameData.notifyTurnSeconds;
+        }
+        else
+        {
+            string activePlayer = (GameData.turnCount % 2 == 0) ? "One" : "Two";
+            NotifyTurnPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = $"Player {activePlayer}\nto Draw!";
+        }
     }
 
     public void SpawnShape(string shapeTag)
     {
-        if (GameData.getGameState() != GameState.GameStart) return;
+        if (GameData.getGameState() != GameState.GamePlaying) return;
         foreach (GameObject shape in shapes)
         {
             if (shape.CompareTag(shapeTag))
@@ -105,6 +116,7 @@ public class GameController : MonoBehaviour
         int curRound = GameData.turnCount / 2 + 1;
         int activePlayer = GameData.turnCount % 2 + 1;
         int secondsRemaining = (int)(GameData.turnSecondsRemaining + 0.999f);
-        return $"Round {curRound}/{GameData.numRounds} - P{activePlayer} to Draw\nTime Remaining: 0:{secondsRemaining:00}";
+        string secondsText = (secondsRemaining > 10) ? $"0:{secondsRemaining:00}" : $"<color=red>0:{secondsRemaining:00}</color>";
+        return $"Round {curRound}/{GameData.numRounds} - P{activePlayer} to Draw\n<b>Time Remaining: {secondsText}</b>";
     }
 }
