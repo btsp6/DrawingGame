@@ -39,8 +39,10 @@ public class Shape : MonoBehaviour
     public void PlaceShape()
     {
         isPlaced = true;
+        foreach (Transform child in gameObject.transform) // Destroy colliders
+        {
+            Destroy(child.gameObject);
+        }
         print("Placed shape!");
     }
-
-
 }
