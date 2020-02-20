@@ -88,7 +88,6 @@ public class GamePanelController : MonoBehaviour
 
         // Get winner panel text
         WinnerText = WinnerPanel.transform.Find("WinnerTextPanel").gameObject.GetComponentInChildren<TextMeshProUGUI>();
-
     }
 
     // Update is called once per frame
@@ -160,7 +159,6 @@ public class GamePanelController : MonoBehaviour
                 break;
             case GameState.EveryoneOpen:
                 PromptPanel.SetActive(false);
-                TurnText.GetComponent<TMPro.TextMeshProUGUI>().SetText($"Player One's Turn\nRound 1/{GameController.numRounds / 2}");
                 GameData.setGameState(GameState.GameStart);
                 break;
             case GameState.GameStart:
