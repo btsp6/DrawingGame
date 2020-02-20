@@ -66,6 +66,8 @@ public class GameController : MonoBehaviour
     private void GotoNextTurn()
     {
         GameData.turnCount += 1;
+        GameData.turnSecondsRemaining = GameData.secondsPerTurn;
+
         GameData.setGameState(GameState.NotifyTurn);
         NotifyTurnPanel.SetActive(true);
         NotifyTurnPanel.GetComponent<CanvasGroup>().alpha = 0;
