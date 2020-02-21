@@ -41,4 +41,6 @@ public class Shape : MonoBehaviour
         isPlaced = true;
         print("Placed shape!");
     }
+
+
 }
