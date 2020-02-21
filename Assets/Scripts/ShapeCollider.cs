@@ -10,6 +10,8 @@ public class ShapeCollider : MonoBehaviour
     private Vector3 center;
     private float startDistance;
     private float startScale;
+    private float startAngle;
+    private float startRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,8 @@ public class ShapeCollider : MonoBehaviour
         center = Camera.main.WorldToScreenPoint(shape.position);
         startDistance = Vector3.Distance(center, Input.mousePosition);
         startScale = axis ? shape.localScale.x : shape.localScale.y;
+        startAngle = Vector3.SignedAngle(Vector3.right, Input.mousePosition - center, Vector3.fwd);
+        startRotation = shape.eulerAngles.z;
     }
 
     private void OnMouseDown()
@@ -46,5 +50,8 @@ public class ShapeCollider : MonoBehaviour
         {
             shape.localScale = new Vector3(shape.localScale.x, (Vector3.Distance(center, Input.mousePosition) / startDistance) * startScale, shape.localScale.z);
         }
+        
+        shape.eulerAngles = new Vector3(shape.eulerAngles.x, shape.eulerAngles.y, (Vector3.SignedAngle(Vector3.right, Input.mousePosition - center, Vector3.fwd) - startAngle) + startRotation);
     }
+    
 }
