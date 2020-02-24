@@ -75,9 +75,10 @@ public class GamePanelController : MonoBehaviour
         }
 
         // Generate the two words for the player this round
-        PlayerOneWord = Pictures.generateWord();
-        PlayerTwoWord = Pictures.generateWord();
-        DummyWord = Pictures.generateWord();
+        string[] wordTrip = Pictures.getWordTrip();
+        PlayerOneWord = wordTrip[0];
+        PlayerTwoWord = wordTrip[1];
+        DummyWord = wordTrip[2];
 
         // Generate permutation
         rand = new System.Random();
