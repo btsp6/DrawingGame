@@ -23,7 +23,7 @@ public class ShapeCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        center = Camera.main.WorldToScreenPoint(shape.position);
     }
 
     private void SetStartVars()
