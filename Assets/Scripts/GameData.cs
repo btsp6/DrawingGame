@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class GameData
 {
-    public const int numRounds = 1;
+    public const int numRounds = 5;
     public const float secondsPerTurn = 25;
     public const float notifyTurnSeconds = 2.5f;
     public const float notifyTurnFadeFrac = .1f;
