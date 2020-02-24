@@ -12,9 +12,7 @@ public static class Pictures
     private static string[][] WordTrips =
     {
         new string[] {"elephant", "spider", "butterfly"},
-        new string[] {"smile", "sad", "eyes"},
         new string[] {"cookie", "cupcake", "sandwich"},
-        new string[] {"apple", "grapes", "cherry"},
         new string[] {"Christmas tree", "star", "butterfly"}
     };
 
