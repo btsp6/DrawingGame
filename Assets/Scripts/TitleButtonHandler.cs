@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TitleButtonHandler : MonoBehaviour
 {
     public GameObject HelpPanel;
+    public GameObject CreditsPanel;
     
     // Start is called before the first frame update
     void Start()
@@ -33,5 +34,15 @@ public class TitleButtonHandler : MonoBehaviour
     public void CloseHelpPanel()
     {
         HelpPanel.SetActive(false);
+    }
+
+    public void OpenCreditsPanel()
+    {
+        CreditsPanel.SetActive(true);
+    }
+
+    public void CloseCreditsPanel()
+    {
+        CreditsPanel.SetActive(false);
     }
 }
